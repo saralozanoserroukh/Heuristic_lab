@@ -1,1 +1,6 @@
 data;
+
+# Decision variables
+
+# Objective function
+minimize cost:
