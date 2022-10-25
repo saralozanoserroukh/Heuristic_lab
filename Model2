@@ -22,7 +22,7 @@ s.t. fulfill_demand {x in DEPARTURES}: (sum{d in DEPARTURES} flow_x[d,x]) - (sum
 s.t. correct_flow {d in DEPARTURES, a in ARRIVALS}: bus_capacity*bin_x[d,a]-flow_x[d,a] >= 0;
 s.t. correct_rows {d in DEPARTURES: d <> 'PARKING' and d <> 'SCHOOL'}: sum{a in ARRIVALS} bin_x[d,a] = 1;
 s.t. correct_cols {a in ARRIVALS: a <> 'PARKING' and a <> 'SCHOOL'}: sum{d in DEPARTURES} bin_x[d,a] = 1;
-s.t. correct_stop {s in STUDENTS, d in DEPARTURES} possible_stops[s, d] - assigned_stops[s, d] >= 0;
-s.t. check_sibling {d in DEPARTURES, s1 in STUDENTS, s2 in STUDENTS} assigned_stop[s1,d]*siblings[s1,s2]-assigned_stop[s2,d]*siblings[s1,s2] = 0;
+s.t. correct_stop {s in STUDENTS, d in DEPARTURES}: possible_stops[s, d] - assigned_stops[s, d] >= 0;
+s.t. check_sibling {d in DEPARTURES, s1 in STUDENTS, s2 in STUDENTS}: assigned_stops[s1,d]*siblings[s1,s2]-assigned_stops[s2,d]*siblings[s1,s2] = 0;
 
 end;
