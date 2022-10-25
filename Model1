@@ -8,7 +8,7 @@ var bin_x {d in DEPARTURES, a in ARRIVALS} binary;
 var flow_x {d in DEPARTURES, a in ARRIVALS} integer, >=0;
 
 minimize budget:
-  (sum {d in DEPARTURE, a in ARRIVAL} 5*cost[d,a]*bin_x[d,a]) + (sum {a in ARRIVALS} 120*bin_x['PARKING',a]);
+  (sum {d in DEPARTURES, a in ARRIVALS} 5*cost[d,a]*bin_x[d,a]) + (sum {a in ARRIVALS} 120*bin_x['PARKING',a]);
 	
 s.t. same_leave_enters: sum{d in DEPARTURES, a in ARRIVALS} bin_x['PARKING',a]-bin_x[d,'SCHOOL'] = 0;
 s.t. fulfill_demand {x in DEPARTURES}: (sum{d in DEPARTURES} flow_x[d,x]) - (sum{a in ARRIVALS} flow_x[x,a]) = demand[x];
