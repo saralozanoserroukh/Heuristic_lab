@@ -1,0 +1,19 @@
+set DEPARTURES;
+set ARRIVALS;
+
+param cost {d in DEPARTURES, a in ARRIVALS};
+param demand {d in DEPARTURES};
+
+var bin_x {d in DEPARTURES, a in ARRIVALS} binary;
+var flow_x {d in DEPARTURES, a in ARRIVALS} integer, >=0;
+
+minimize budget:
+  (sum {d in DEPARTURES, a in ARRIVALS} 5*cost[d,a]*bin_x[d,a]) + (sum {a in ARRIVALS} 120*bin_x['PARKING',a]);
+	
+s.t. same_leave_enters: sum{d in DEPARTURES, a in ARRIVALS} bin_x['PARKING',a] - bin_x[d,'SCHOOL'] = 0;
+s.t. fulfill_demand {x in DEPARTURES}: (sum{d in DEPARTURES} flow_x[d,x]) - (sum{a in ARRIVALS} flow_x[x,a]) = demand[x];
+s.t. correct_flow {d in DEPARTURES, a in ARRIVALS}: 20*bin_x[d,a]-flow_x[d,a] >= 0;
+s.t. correct_rows {d in DEPARTURES: d <> 'PARKING' and d <> 'SCHOOL'}: sum{a in ARRIVALS} bin_x[d,a] = 1;
+s.t. correct_cols {a in ARRIVALS: a <> 'PARKING' and a <> 'SCHOOL'}: sum{d in DEPARTURES} bin_x[d,a] = 1;
+
+end;
