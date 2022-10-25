@@ -3,6 +3,9 @@ set ARRIVALS;
 
 param cost {d in DEPARTURES, a in ARRIVALS};
 param demand {d in DEPARTURES};
+param cost_bus;
+param cost_km;
+param bus_capacity;
 
 var bin_x {d in DEPARTURES, a in ARRIVALS} binary;
 var flow_x {d in DEPARTURES, a in ARRIVALS} integer, >=0;
