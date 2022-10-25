@@ -11,8 +11,10 @@ param cost: PARKING S1 S2 S3 SCHOOL:=
   SCHOOL 9999 9999 9999 9999;
 
 param demand:=
+  PARKING -30
   S1 15
   S2 5
-  S3 10;
+  S3 10
+  SCHOOL 0;
   
   end;
