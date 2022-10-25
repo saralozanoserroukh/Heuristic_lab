@@ -7,7 +7,7 @@ param demand {d in DEPARTURES};
 param cost_bus;
 param cost_km;
 param bus_capacity;
-param siblings{s1 in STUDENTS, S2 in students}
+param siblings{s1 in STUDENTS, S2 in STUDENTS}
 param possible_stops {s in STUDENTS, d in DEPARTURES};
 
 var bin_x {d in DEPARTURES, a in ARRIVALS} binary;
