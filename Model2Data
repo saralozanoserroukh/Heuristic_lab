@@ -32,12 +32,5 @@ param possible_stops: A1 A2 A3 A4 A5 A6 A7 A8
   S3 0 0 0 1 1 1 1 1
   SCHOOL 0 0 0 0 0 0 0 0;
 
-// Now demand cannot be a parameter, as we have to assign to each student a stop, considering siblings
-param demand:=
-  PARKING -8
-  S1 ??
-  S2 ??
-  S3 ??
-  SCHOOL 0;
   
   end;
