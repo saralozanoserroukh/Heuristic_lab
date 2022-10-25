@@ -12,7 +12,7 @@ param possible_stops {s in STUDENTS, d in DEPARTURES};
 
 var bin_x {d in DEPARTURES, a in ARRIVALS} binary;
 var flow_x {d in DEPARTURES, a in ARRIVALS} integer, >=0;
-var assigned_stops {s in STUDENTS, d in DEPARTURES};
+var assigned_stops {s in STUDENTS, d in DEPARTURES} binary;
 
 minimize budget:
   (sum {d in DEPARTURES, a in ARRIVALS} cost_km*cost[d,a]*bin_x[d,a]) + (sum {a in ARRIVALS} cost_bus*bin_x['PARKING',a]);
