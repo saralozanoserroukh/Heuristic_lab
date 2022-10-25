@@ -4,6 +4,10 @@ set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
 set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
 set  STUDENTS := A1 A2 A3 A4 A5 A6 A7 A8;
 
+param cost_bus := 120;
+param cost_km := 5;
+param bus_capacity := 4;
+
 param cost: PARKING S1 S2 S3 SCHOOL:=
   PARKING 9999 8 10 10 9999
   S1 9999 9999 3 7 6
