@@ -3,6 +3,10 @@ data;
 set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
 set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
 
+param cost_bus := 120;
+param cost_km := 5;
+param bus_capacity := 20;
+
 param cost: PARKING S1 S2 S3 SCHOOL:=
   PARKING 9999 8 10 10 9999
   S1 9999 9999 3 7 6
@@ -16,5 +20,5 @@ param demand:=
   S2 5
   S3 10
   SCHOOL 0;
-  
+
   end;
