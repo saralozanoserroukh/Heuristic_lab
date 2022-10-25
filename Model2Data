@@ -2,6 +2,7 @@ data;
 
 set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
 set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
+set  STUDENTS := A1 A2 A3 A4 A5 A6 A7 A8;
 
 param cost: PARKING S1 S2 S3 SCHOOL:=
   PARKING 9999 8 10 10 9999
@@ -9,6 +10,16 @@ param cost: PARKING S1 S2 S3 SCHOOL:=
   S2 9999 3 9999 5 7
   S3 9999 7 5 9999 4
   SCHOOL 9999 9999 9999 9999 9999;
+  
+param siblings: A1 A2 A3 A4 A5 A6 A7 A8:=
+  A1 0 0 0 0 0 0 0 0
+  A2 0 0 0 0 0 0 0 0
+  A3 0 0 0 0 0 0 0 0
+  A4 0 0 0 0 1 0 0 0
+  A5 0 0 0 1 0 0 0 0
+  A6 0 0 0 0 0 0 0 0
+  A7 0 0 0 0 0 0 0 0
+  A8 0 0 0 0 0 0 0 0
 
 // Now demand cannot be a parameter, as we have to assign to each student a stop, considering siblings
 param demand:=
