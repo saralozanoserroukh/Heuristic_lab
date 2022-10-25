@@ -1,1 +1,21 @@
+data;
 
+set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
+set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
+
+param cost: PARKING S1 S2 S3 SCHOOL:=
+  PARKING 9999 8 10 10 9999
+  S1 9999 9999 3 7 6
+  S2 9999 3 9999 5 7
+  S3 9999 7 5 9999 4
+  SCHOOL 9999 9999 9999 9999 9999;
+
+// Now demand cannot be a parameter, as we have to assign to each student a stop, considering siblings
+param demand:=
+  PARKING -8
+  S1 ??
+  S2 ??
+  S3 ??
+  SCHOOL 0;
+  
+  end;
