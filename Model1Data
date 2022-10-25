@@ -1,6 +1,18 @@
 data;
 
-# Decision variables
+set  DEPARTURE := PARKING S1 S2 S3 SCHOOL;
+set  ARRIVAL := PARKING S1 S2 S3 SCHOOL;
 
-# Objective function
-minimize cost:
+param cost: PARKING S1 S2 S3 SCHOOL:=
+  PARKING 9999 8 10 10 9999
+  S1 9999 9999 3 7 6
+  S2 9999 3 9999 5 7
+  S3 9999 7 5 9999 4
+  SCHOOL 9999 9999 9999 9999;
+
+param demand:=
+  S1 15
+  S2 5
+  S3 10;
+  
+  end;
