@@ -25,6 +25,5 @@ s.t. correct_cols {a in ARRIVALS: a <> 'PARKING' and a <> 'SCHOOL'}: sum{d in DE
 s.t. correct_stop {s in STUDENTS, d in DEPARTURES}: possible_stops[s,d] - assigned_stops[s,d] >= 0;
 s.t. student_has_stop {s in STUDENTS}: sum{d in DEPARTURES} assigned_stops[s,d] = 1;
 s.t. check_sibling {d in DEPARTURES, s1 in STUDENTS, s2 in STUDENTS}: assigned_stops[s1,d]*siblings[s1,s2]-assigned_stops[s2,d]*siblings[s1,s2] = 0;
-s.t. exit_parking: sum{a in ARRIVALS} bin_x['PARKING',a] >= 1;
 
 end;
