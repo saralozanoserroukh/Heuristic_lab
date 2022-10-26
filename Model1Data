@@ -1,7 +1,6 @@
 data;
 
-set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
-set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
+set  STOPS := PARKING S1 S2 S3 SCHOOL;
 
 param cost_bus := 120;
 param cost_km := 5;
@@ -21,4 +20,4 @@ param demand:=
   S3 10
   SCHOOL 0;
 
-  end;
+end;
