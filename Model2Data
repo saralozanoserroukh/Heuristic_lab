@@ -1,7 +1,6 @@
 data;
 
-set  DEPARTURES := PARKING S1 S2 S3 SCHOOL;
-set  ARRIVALS := PARKING S1 S2 S3 SCHOOL;
+set  STOPS := PARKING S1 S2 S3 SCHOOL;
 set  STUDENTS := A1 A2 A3 A4 A5 A6 A7 A8;
 
 param cost_bus := 120;
@@ -35,4 +34,4 @@ param possible_stops: PARKING S1 S2 S3 SCHOOL:=
   A7 0 0 0 1 0
   A8 0 0 0 1 0;
 
-  end;
+end;
