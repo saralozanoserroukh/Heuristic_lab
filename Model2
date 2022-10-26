@@ -19,8 +19,8 @@ minimize budget:
 s.t. same_leave_enters: (sum{a in STOPS} bin_x['PARKING',a]) - (sum{d in STOPS} bin_x[d,'SCHOOL']) = 0;
 s.t. fulfill_demand {x in STOPS: x <> 'PARKING' and x <> 'SCHOOL'}: (sum{d in STOPS} flow_x[d,x]) - (sum{a in STOPS} flow_x[x,a]) = sum{s in STUDENTS} assigned_stops[s,x];
 s.t. correct_flow {d in STOPS, a in STOPS}: bus_capacity*bin_x[d,a]-flow_x[d,a] >= 0;
-s.t. correct_rows {d in STOPS: d <> 'PARKING' and d <> 'SCHOOL'}: sum{a in STOPS} bin_x[d,a] = 1;
-s.t. correct_cols {a in STOPS: a <> 'PARKING' and a <> 'SCHOOL'}: sum{d in STOPS} bin_x[d,a] = 1;
+s.t. correct_rows {d in STOPS: d <> 'PARKING' and d <> 'SCHOOL'}: sum{a in STOPS} bin_x[d,a] <= 1;
+s.t. correct_cols {a in STOPS: a <> 'PARKING' and a <> 'SCHOOL'}: sum{d in STOPS} bin_x[d,a] <= 1;
 s.t. correct_stop {s in STUDENTS, d in STOPS}: possible_stops[s,d] - assigned_stops[s,d] >= 0;
 s.t. student_has_stop {s in STUDENTS}: sum{d in STOPS} assigned_stops[s,d] = 1;
 s.t. check_sibling {d in STOPS, s1 in STUDENTS, s2 in STUDENTS}: assigned_stops[s1,d]*siblings[s1,s2]-assigned_stops[s2,d]*siblings[s1,s2] = 0;
